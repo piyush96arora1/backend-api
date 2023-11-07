@@ -6,6 +6,9 @@ app.get("/random", (req, res) => {
   // Generate a random number between 0 and 1
   const randomNumber = Math.floor(Math.random() * 2);
 
+  // Set the "x-random" header in the response
+  res.setHeader("x-random", randomNumber);
+
   res.json({ result: randomNumber });
 });
 
