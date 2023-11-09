@@ -15,10 +15,15 @@ console.log(random5DigitNumber);
 app.get("/random", (req, res) => {
   // Generate a random number between 0 and 1
   const randomNumber = Math.floor(Math.random() * 2);
-
+  const weburl = req.query.weburl;
+  if (weburl === "/jobs-in-delhi-cty") {
+    res.setHeader("x-key", "2241");
+  }
+  if (weburl === "/jobs-in-noida-cty") {
+    res.setHeader("x-key", "2242");
+  }
   // Set the "x-random" header in the response
   res.setHeader("x-random", randomNumber);
-  res.setHeader("x-key", generateRandomNumber());
 
   res.setHeader("x-cookie", "deviceId=7778921-32123;isUstSaved=true;");
   res.json({ result: randomNumber });
