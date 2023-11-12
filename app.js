@@ -8,7 +8,8 @@ app.get("/random", (req, res) => {
 
   // Set the "x-random" header in the response
   res.setHeader("x-random", randomNumber);
-  res.setHeader("x-cookie", "deviceId=7778921-31123;isUstSaved=true;");
+  res.setHeader("x-deviceId-cookie", "deviceId=7778921-31123");
+  res.setHeader("x-isUstSaved-cookie", true);
   res.json({ result: randomNumber });
 });
 
