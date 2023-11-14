@@ -24,10 +24,10 @@ app.get("/random", (req, res) => {
   }
   // Set the "x-random" header in the response
   res.setHeader("x-random", randomNumber);
-  res.setHeader("x-deviceId-cookie", "deviceId=7778921-31123");
-  res.setHeader("x-isUstSaved-cookie", "isUstSaved=true");
-  res.setHeader("x-utmSource-cookie", "utm_source=google");
-  res.setHeader("x-utmMedium-cookie", "utm_medium=organic");
+  res.setHeader("x-deviceid-cookie", "deviceId=7778921-31123");
+  res.setHeader("x-isustSaved-cookie", "isUstSaved=true");
+  res.setHeader("x-utmsource-cookie", "utm_source=google");
+  res.setHeader("x-utmmedium-cookie", "utm_medium=organic");
   res.json({ result: randomNumber });
 });
 
