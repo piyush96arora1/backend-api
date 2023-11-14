@@ -26,6 +26,8 @@ app.get("/random", (req, res) => {
   res.setHeader("x-random", randomNumber);
   res.setHeader("x-deviceId-cookie", "deviceId=7778921-31123");
   res.setHeader("x-isUstSaved-cookie", "isUstSaved=true");
+  res.setHeader("x-utmSource-cookie", "utm_source=google");
+  res.setHeader("x-utmMedium-cookie", "utm_medium=organic");
   res.json({ result: randomNumber });
 });
 
