@@ -1,4 +1,6 @@
 const express = require("express");
+const cookie = require("cookie");
+
 const app = express();
 const port = 3000; // You can change this to the desired port number
 
@@ -15,6 +17,8 @@ console.log(random5DigitNumber);
 app.get("/random", (req, res) => {
   // Generate a random number between 0 and 1
   const randomNumber = Math.floor(Math.random() * 2);
+  const cookies = cookie.parse(req.headers.cookie || "");
+
   const weburl = req.query.weburl;
   if (weburl === "/jobs-in-delhi-cty") {
     res.setHeader("x-key", "2241");
@@ -30,7 +34,7 @@ app.get("/random", (req, res) => {
   res.setHeader("x-isustSaved-cookie", "isUstSaved=true; path=/");
   res.setHeader("x-utmsource-cookie", "utm_source=google; path=/");
   res.setHeader("x-utmmedium-cookie", "utm_medium=organic; path=/");
-  res.json({ result: randomNumber });
+  res.json({ result: randomNumber, cookies: JSON.stringify(cookies) });
 });
 
 app.listen(port, () => {
