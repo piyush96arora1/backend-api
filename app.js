@@ -24,6 +24,8 @@ app.get("/random", (req, res) => {
   }
   // Set the "x-random" header in the response
   res.setHeader("x-random", randomNumber);
+  res.setHeader("x-time", new Date().getTime());
+
   res.setHeader("x-deviceid-cookie", "deviceId=7778921-31123; path=/");
   res.setHeader("x-isustSaved-cookie", "isUstSaved=true; path=/");
   res.setHeader("x-utmsource-cookie", "utm_source=google; path=/");
